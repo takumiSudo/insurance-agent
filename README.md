@@ -1,4 +1,4 @@
-# Agentic Project
+# Agentic Project for controlling manual insurance claim tasks
 
 ## Overview
 This project implements a policy-driven framework for controlling and managing AI agent behaviors in automated tasks. It provides a flexible policy enforcement system that allows you to define and control what actions an AI agent can perform, similar to IAM policies.
