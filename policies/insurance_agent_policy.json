@@ -1,0 +1,46 @@
+{
+    "version": "2023-12-08",
+    "statements": [
+        {
+            "sid": "AllowBasicBrowserActions",
+            "effect": "Allow",
+            "actions": [
+                "browser:Navigate",
+                "browser:ReadPage",
+                "browser:FillForm"
+            ],
+            "resources": ["*"],
+            "conditions": [
+                {
+                    "type": "StringEquals",
+                    "key": "browser.url",
+                    "value": "http://localhost:8000/*"
+                }
+            ]
+        },
+        {
+            "sid": "AllowAIAnalysis",
+            "effect": "Allow",
+            "actions": [
+                "ai:AnalyzeContent",
+                "ai:GenerateResponse"
+            ],
+            "resources": ["*"],
+            "conditions": [
+                {
+                    "type": "DateGreaterThan",
+                    "key": "time",
+                    "value": "2023-12-01T00:00:00Z"
+                }
+            ]
+        },
+        {
+            "sid": "DenySensitiveData",
+            "effect": "Deny",
+            "actions": [
+                "browser:FillForm"
+            ],
+            "resources": ["form_field:credit-card"]
+        }
+    ]
+}
